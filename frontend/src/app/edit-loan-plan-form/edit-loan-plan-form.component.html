@@ -1,0 +1,18 @@
+<div class="container">
+  <h2>Edit Loan Plan</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="planName">Plan Name</label>
+      <input type="text" class="form-control" id="planName" [(ngModel)]="loanPlan.planName" name="planName" required>
+    </div>
+    <div class="form-group">
+      <label for="planValidity">Plan Validity</label>
+      <input type="text" class="form-control" id="planValidity" [(ngModel)]="loanPlan.planValidity" name="planValidity" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <div *ngIf="acknowledgement">
+    <h3>Acknowledgement</h3>
+    <p>Plan updated successfully!</p>
+  </div>
+</div>

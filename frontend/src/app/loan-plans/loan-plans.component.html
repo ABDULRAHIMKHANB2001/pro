@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>Loan Plans</h2>
+  <div>
+    <label>
+      <input type="radio" name="view" (change)="toggleView('customer')" checked> Customer View
+    </label>
+    <label>
+      <input type="radio" name="view" (change)="toggleView('manager')"> Bank Manager View
+    </label>
+  </div>
+  <div class="card" *ngFor="let plan of loanPlans">
+    <div class="card-body">
+      <h5 class="card-title">{{ plan.planName }}</h5>
+      <p class="card-text">Type: {{ plan.loanType }}</p>
+      <p class="card-text">Principal Amount: {{ plan.principalAmount }}</p>
+      <p class="card-text">Interest Rate: {{ plan.interestRate }}%</p>
+      <p class="card-text">Tenure: {{ plan.tenure }} years</p>
+      <p class="card-text">Total Payable Amount: {{ plan.totalPayableAmount }}</p>
+      <p class="card-text">Plan Validity: {{ plan.planValidity }}</p>
+      <button *ngIf="isManagerView" class="btn btn-primary" (click)="editPlan(plan.planId)">Edit</button>
+    </div>
+  </div>
+</div>
